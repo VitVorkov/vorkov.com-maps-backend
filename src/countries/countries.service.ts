@@ -15,7 +15,7 @@ export class CountriesService {
 	) {}
 
 	async update(userEmail: string, countryName: string) {
-		const user = await this.usersService.getOrCreateUser(userEmail);
+		await this.usersService.checkOrCreateUser(userEmail);
 		await this.checkOrCreateCountry(countryName);
 
 		const countries: Country[] = await this.prismaService.country.findMany({

@@ -7,7 +7,7 @@ export class UsersService {
 	constructor(private readonly prismaService: PrismaService) {}
 	private readonly logger = new Logger(UsersService.name);
 
-	async getOrCreateUser(email: string): Promise<User> {
+	async checkOrCreateUser(email: string): Promise<User> {
 		const user: User = await this.prismaService.user.findUnique({
 			where: { email: email },
 			include: { countries: true },
