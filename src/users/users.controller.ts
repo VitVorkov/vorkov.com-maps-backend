@@ -11,4 +11,9 @@ export class UsersController {
 	getUserAuth(@Query('email') email: string) {
 		return this.usersService.getOrCreateUser(email);
 	}
+
+	@Get('no-auth')
+	getUserNoAuth(@Query('email') email: string) {
+		return this.usersService.getOrCreateUser(email);
+	}
 }
