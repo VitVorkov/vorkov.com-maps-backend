@@ -13,7 +13,8 @@ export class UsersController {
 	}
 
 	@Get('no-auth')
-	getUserNoAuth(@Query('email') email: string) {
+	getUserNoAuth() {
+		const email = 'vitvorkov@gmail.com';
 		return this.usersService.getOrCreateUser(email);
 	}
 }
